@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
   	@question = Question.new(question_params)
   	if @question.save
   	#If save succeeds, redirect to the index action
+      flash[:notice] = "Question created successfully."
   	  redirect_to(:action => 'index')
     else
   	#If save fails, redisplay the form so user can fix problems
@@ -33,6 +34,7 @@ class QuestionsController < ApplicationController
     #Update the question
     if @question.update_attributes(question_params)
     #If save succeeds, redirect to the show action
+      flash[:notice] = "Question updated successfully."
       redirect_to(:action => 'show', :id => @question.id)
     else
     #If save fails, redisplay the form so user can fix problems
@@ -46,6 +48,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     Question.find_by_id(params[:id]).destroy
+    flash[:notice] = "Question destroyed successfully."
     redirect_to(:action => 'index')
   end
 
