@@ -7,6 +7,12 @@
 <div class="questions index">
   <h2>Questions</h2>
 
+  <p>
+    Download:
+    <%= link_to "CSV", questions_path(format: "csv") %> |
+    <%= link_to "Excel", questions_path(format: "xls") %>
+  </p>
+
   <%=  %>
 
   <%= link_to("Add new question", {:action => 'new'}, :class => 'action new') %>

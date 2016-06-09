@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Question</Data></Cell>
+        <Cell><Data ss:Type="String">Answer</Data></Cell>
+        <Cell><Data ss:Type="String">Distractors</Data></Cell>
+        <Cell><Data ss:Type="String">Difficulty</Data></Cell>
+      </Row>
+    <% @questions.each do |question| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= question.question %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= question.answer %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= question.distractors %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= question.difficulty %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
