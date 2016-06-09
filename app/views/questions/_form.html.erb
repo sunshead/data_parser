@@ -1,0 +1,18 @@
+<table summary="Question form fields">
+    <tr>
+      <th><%= f.label(:question, "Question")%></th>
+      <td><%= f.text_field(:question) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:answer)%></th>
+      <td><%= f.text_field(:answer) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:distractors)%></th>
+      <td><%= f.text_field(:distractors) %></td>
+    </tr>
+    <tr>
+      <th><%= f.label(:difficulty)%></th>
+      <td><%= f.select(:difficulty, %w[easy medium hard]) %></td>
+    </tr>
+</table>
