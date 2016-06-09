@@ -2,7 +2,7 @@
 <div class="questions delete">
   <h2>Delete Question</h2>
 
-  <%= form_for(:question, :url => {:action => 'destroy', :id => @question.id}) do |f| %>
+  <%= form_for @question, method: :delete do |f| %>
     <p>Are you sure you want to permanently delete this question?</p>
     <p class="reference-name"><%= @question.question %></p>
 

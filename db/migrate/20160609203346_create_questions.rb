@@ -6,7 +6,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.string :distractors, :limit => 50, :default => "", :null => true
       t.integer :difficulty, :default => 0
 
-      t.timestamps null: false
+      t.timestamps null: true
     end
   end
 end

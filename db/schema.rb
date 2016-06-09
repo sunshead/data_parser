@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160609133714) do
+ActiveRecord::Schema.define(version: 20160609203346) do
 
   create_table "questions", force: :cascade do |t|
     t.string   "question",    limit: 50,              null: false
     t.string   "answer",      limit: 20,              null: false
     t.string   "distractors", limit: 50, default: ""
     t.integer  "difficulty",  limit: 4,  default: 0
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|

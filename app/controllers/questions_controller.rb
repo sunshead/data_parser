@@ -57,6 +57,11 @@ class QuestionsController < ApplicationController
     redirect_to(:action => 'index')
   end
 
+  def import
+    Question.import(params[:file])
+    redirect_to root_url, notice: "Questions imported."
+  end
+
 private
   def question_params
   	# strong parameters

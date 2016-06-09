@@ -4,6 +4,13 @@
   </div>
 <% end %>
 
+<h2>Import Questions</h2>
+
+<%= form_tag import_questions_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
 <div class="questions index">
   <h2>Questions</h2>
 
