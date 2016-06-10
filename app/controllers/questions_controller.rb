@@ -3,11 +3,11 @@ class QuestionsController < ApplicationController
   helper_method :sort_column, :sort_direction #allow access in application_helper.rb
 
   def index
-  	@questions = Question.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
+  	@questions = Question.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
     respond_to do |format|
       format.html
       format.csv { send_data @questions.to_csv }
-      format.xls { send_data @questions.to_csv(col_sep: "\t") }
+      format.xls { send_data @questions.to_csv }
       format.js
     end
   end

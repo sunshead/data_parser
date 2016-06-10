@@ -1,14 +1,8 @@
-<% if !flash[:notice].blank? %>
-  <div class="notice">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
-<div class="questions show">
+<div class="container">
   <h2>Question Detail</h2>
 
-  <table summary="Question detail view">
+  <table class="table table-bordered" summary="Question detail view">
     <tr>
       <th>Question</th>
       <td><%= @question.question %></td>

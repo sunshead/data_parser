@@ -13,11 +13,12 @@ class Question < ActiveRecord::Base
 	  end
 	end
 
-	def self.to_csv(options = {})
+	def self.to_csv(attributes = %w(question answer distractors), options = {})
 		CSV.generate(options) do |csv|
-			csv << column_names
+			csv << attributes
 			all.each do |question|
-				csv << question.attributes.values_at(*column_names)
+				values = question.attributes.slice(*attributes).values
+				csv << values
 			end
 		end
 	end

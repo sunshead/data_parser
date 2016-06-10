@@ -1,0 +1,11 @@
+<% @page_title = "Admin Menu" %>
+<div class="container">
+  <h2>Admin Menu</h2>
+  <div class="identity">Logged in as: <%= @username %></div>
+  Following operations are available:
+  <ul>
+    <li><%= link_to("Manage Questions", :controller => 'questions') %></li>
+    <li><%= link_to("Manage users", '#')%></li>
+    <li><%= link_to("Logout", :action => 'logout')%></li>
+  </ul>
+</div>

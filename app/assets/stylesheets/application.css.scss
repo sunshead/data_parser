@@ -14,16 +14,5 @@
  *= require_self
  */
 
-.listing th .current {
-  padding-right: 15px;
-  background-repeat: no-repeat;
-  background-position: right center;
-}
-
-.listing th .asc {
-  background-image: url('arrow-down.gif');
-}
-
-.listing th .desc {
-  background-image: url('arrow-up.gif');
-}
+ @import "bootstrap-sprockets";
+ @import "bootstrap";

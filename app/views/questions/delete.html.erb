@@ -7,7 +7,7 @@
     <p class="reference-name"><%= @question.question %></p>
 
     <div class="form-buttons">
-      <%= submit_tag("Delete Question")%>
+      <%= f.submit 'Delete Question', :class => 'btn btn-danger' %>
     </div>
 
   <% end %>

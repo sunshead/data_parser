@@ -1,11 +1,11 @@
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %>
-<div class="questions edit">
+<div class="container edit">
   <h2>Edit Question</h2>
   <%= form_for @question do |f| %>
   <%= render(:partial => "form", :locals => {:f => f}) %>
 
-  <div class="form-buttons">
-    <%= submit_tag("update Question") %>
+  <div>
+    <%= f.submit 'Update Question', :class => 'btn btn-primary' %>
   </div>
 
   <% end %>
