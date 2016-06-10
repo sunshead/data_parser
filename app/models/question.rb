@@ -5,6 +5,14 @@ class Question < ActiveRecord::Base
 
 	scope :sorted, lambda { order("questions.id ASC")}
 
+	def self.search(search)
+	  if search
+	    where('question LIKE ?', "%#{search}%")
+	  else
+	    all
+	  end
+	end
+
 	def self.to_csv(options = {})
 		CSV.generate(options) do |csv|
 			csv << column_names

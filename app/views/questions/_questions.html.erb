@@ -1,0 +1,27 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="listing" summary="Question list">
+  <tr class="header">
+    <th>&nbsp;</th>
+    <th><%= sortable "question" %></th>
+    <th><%= sortable "answer" %></th>
+    <th><%= sortable "distractors" %></th>
+    <th><%= sortable "difficulty" %></th>
+    <th>Actions</th>
+  </tr>
+  <% @questions.each do |question| %>
+  <tr class="<%= cycle('odd', 'even') %>">
+    <td><%= question.id %></td>
+    <td><%= question.question %></td>
+    <td><%= question.answer %></td>
+    <td><%= question.distractors %></td>
+    <td><%= question.difficulty %></td>
+    <td class="actions">
+      <%= link_to("Show", {:action => 'show', :id => question.id}, :class => 'action show') %>
+      <%= link_to("Edit", {:action => 'edit', :id => question.id}, :class => 'action edit') %>
+      <%= link_to("Delete", {:action => 'delete', :id => question.id}, :class => 'action delete') %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<%= will_paginate @questions %>

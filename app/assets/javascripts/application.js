@@ -14,3 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function () {
+  $('#questions th a, #questions .pagination a').on('click', function () { //
+    $.getScript(this.href);
+    return false;
+  });
+
+  $('#questions_search input').keyup(function () {
+    $.get($("#questions_search").attr("action"), $("#questions_search").serialize(), null, 'script');
+    return false;
+  });
+});

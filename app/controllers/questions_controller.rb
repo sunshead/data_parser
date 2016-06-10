@@ -1,10 +1,14 @@
 class QuestionsController < ApplicationController
+  
+  helper_method :sort_column, :sort_direction #allow access in application_helper.rb
+
   def index
-  	@questions = Question.sorted
+  	@questions = Question.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 15, :page => params[:page])
     respond_to do |format|
       format.html
       format.csv { send_data @questions.to_csv }
       format.xls { send_data @questions.to_csv(col_sep: "\t") }
+      format.js
     end
   end
 
@@ -69,6 +73,14 @@ private
     # - raises an error if :subject is not present
     # - allows listed attributes to be mass-assigned
   	params.require(:question).permit(:question, :answer, :distractors, :difficulty)
+  end
+  #for sorting columns
+  def sort_column
+    Question.column_names.include?(params[:sort]) ? params[:sort] : "question"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
 end

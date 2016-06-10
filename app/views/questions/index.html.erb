@@ -11,7 +11,7 @@
   <%= submit_tag "Import" %>
 <% end %>
 
-<div class="questions index">
+<div class="index">
   <h2>Questions</h2>
 
   <p>
@@ -20,33 +20,16 @@
     <%= link_to "Excel", questions_path(format: "xls") %>
   </p>
 
-  <%=  %>
+  <%= form_tag questions_path, :method => 'get', :id => "questions_search" do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <div id="questions"><%= render 'questions' %></div>
+  <% end %>
 
   <%= link_to("Add new question", {:action => 'new'}, :class => 'action new') %>
   
   <div><%= pluralize(@questions.size, 'question')%> found.</div>
-  <table class="listing" summary="Question list">
-    <tr class="header">
-      <th>&nbsp;</th>
-      <th>Question</th>
-      <th>Answer</th>
-      <th>Distractors</th>
-      <th>Difficulty</th>
-      <th>Actions</th>
-    </tr>
-    <% @questions.each do |question| %>
-    <tr class="<%= cycle('odd', 'even') %>">
-      <td><%= question.id %></td>
-      <td><%= question.question %></td>
-      <td><%= question.answer %></td>
-      <td><%= question.distractors %></td>
-      <td><%= question.difficulty %></td>
-      <td class="actions">
-        <%= link_to("Show", {:action => 'show', :id => question.id}, :class => 'action show') %>
-        <%= link_to("Edit", {:action => 'edit', :id => question.id}, :class => 'action edit') %>
-        <%= link_to("Delete", {:action => 'delete', :id => question.id}, :class => 'action delete') %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
+ 
 </div>
