@@ -63,7 +63,7 @@ class QuestionsController < ApplicationController
 
   def import
     Question.import(params[:file])
-    redirect_to questions_path, notice: "Questions imported."
+    redirect_to root_url, notice: "Questions imported."
   end
 
 private
